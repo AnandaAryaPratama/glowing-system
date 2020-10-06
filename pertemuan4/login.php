@@ -24,7 +24,7 @@
 </head>
 <body>
     <p>Login System</p>
-    <form methos="post" action="ceklogin.php">
+    <form method="post" action="ceklogin.php">
         <label>Username</label>
         <input class="inputan" type="teks" name="username">
         <label>Password</label>
