@@ -15,12 +15,20 @@
             $namaBelakang = $_POST["namaBelakang"];
             $email = $_POST["email"];
 
-            }
     ?>
     Nama Lengkap: <?php echo $namaDepan ." ". $namaBelakang ?>
     <br>
     Username: <?php echo $username ?>
     <br>
     Email: <?php echo $email ?>
+
+    <?php
+        }
+
+        else {
+            echo "Mohon maaf cek login tidak bisa diakses langsung";
+        }
+    ?>
+
 </body>
 </html>
