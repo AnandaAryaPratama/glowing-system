@@ -13,7 +13,7 @@
         $status = 2;
         include_once "koneksi.php";
 
-        if ($_POST["kode"]) {
+        if (isset($_POST["kode"])) {
         $kode = $_POST["kode"];
         $nama = $_POST["nama"];
         $kategori = $_POST["kategori"];
@@ -24,16 +24,24 @@
 
         $runSQL = mysqli_query($conn, $sql);
         if ($runSQL) {
-            echo "<div id='sukses' class='alert alert-success alert-dismissible fade show'>";
-            echo    "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
-            echo    "Data berhasil diinput kedalam database.";
-            echo "</div> ";
+            $status = 1; //Sukses
         }
         else {
             $status = 0; //Tidak Suskes
         }
     }
     ?>
+    
+    <div id='sukses' class='alert alert-success alert-dismissible fade show'>
+        <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        Data berhasil diinput kedalam database.
+    </div>
+
+    <div id='gagal' class='alert alert-danger alert-dismissible fade show'>
+        <button type='button' class='close' data-dismiss='alert'>&times;</button>
+        Data gagal diinput kedalam database.
+    </div>
+
     <div class="container">
         <H1>Pendaftaran Mata Kuliah versi 2 (dg Modal)</H1>
     
@@ -116,6 +124,8 @@
     
     <script>
         $(document).ready(function() {
+            $('#sukses').hide();
+            $('#gagal').hide();
             $('#tombol').click(function(){
                 //ambil data dari form
                 const kode = $('#kode').val();
@@ -127,8 +137,8 @@
                 $('#namamk').text(nama);
                 $('#kat').text(kategori);
                 $('#sksmk').text(sks);
-                console.log(kode)
-                $('#pesan').modal('show');
+                console.log(kode);
+                    $("#pesan").modal({show: true});
             })
 
             $('#simpan').click(function(){
@@ -138,11 +148,13 @@
 				url: "matkulpakhen2.php",
 				data: data,
 				success: function() {
-				    $('.sukses').load("matkulpakhen2.php");
+                    $("#pesan").modal('hide');
+                    document.getElementById("daftarmatkul").reset();
+                    $('#sukses').show();
 				}
 			});
             })
-        })
+        });
     </script>
 </body>
 </html>
