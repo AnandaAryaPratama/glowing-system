@@ -12,23 +12,17 @@
     <?php
         $status = 2;
         include_once "koneksi.php";
+        include_once "header.php";
 
-        if (isset($_POST["kode"])) {
-        $kode = $_POST["kode"];
-        $nama = $_POST["nama"];
-        $kategori = $_POST["kategori"];
-        $sks = $_POST["sks"];
+        if (isset($_GET["kodemk"])) {
+            $kodemk = $_GET["kodemk"];
         
-        $sql = "INSERT INTO matakuliah (kode, nama, kategori, sks)
-        VALUES ('$kode', '$nama', '$kategori', '$sks')";
+        $sql = "SELECT * FROM matakuliah WHERE id='".$kodemk."'";
 
         $runSQL = mysqli_query($conn, $sql);
-        if ($runSQL) {
-            $status = 1; //Sukses
-        }
-        else {
-            $status = 0; //Tidak Suskes
-        }
+    }
+    else {
+        header("location: listmatakuliah.php");
     }
     ?>
     
@@ -87,16 +81,24 @@
             </div>
         </div>
     </div>
-
+    <?php
+        if ($runSQL) {
+            $jmlRowData = mysqli_num_rows($runSQL);
+            if ($jmlRowData < 0) {
+                echo "<tr><td colspan='5'>Data Tidak Terdapat Dalam Database</td></tr>";
+                }
+              else {
+            while($row = mysqli_fetch_assoc($runSQL)) {
+     ?>       
         <form method="post" id="daftarmatkul">
             <div class="form-group">
                 <label>Kode Mata Kuliah</label><br>
-                <input id="kode" class="form-control" type="text" name="kode"><br>
+                <input id="kode" class="form-control" type="text" name="kode" value="<?php echo $row['kode'] ?>"><br>
             </div>
 
             <div class="form-group">
                 <label>Nama Mata Kuliah</label><br>
-                <input id="nama" class="form-control" type="text" name="nama"><br>
+                <input id="nama" class="form-control" type="text" name="nama" value="<?php echo $row['nama'] ?>"><br>
             </div>
 
             <div class="form-group">
@@ -111,12 +113,20 @@
 
             <div class="form-group">
                 <label>SKS</label><br>
-                <input id="sks" class="form-control" type="text" name="sks"><br>
+                <input id="sks" class="form-control" type="text" name="sks" value="<?php echo $row['sks'] ?>"><br>
             </div>
             <input class="btn btn-primary" type="button" value="Simpan" id="tombol">
             <br>
         </form>
+        <?php
+                }
+            }
+        }
+        ?>
     </div>
+    <?php
+        include_once 'footer.php'
+    ?>
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

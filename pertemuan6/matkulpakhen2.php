@@ -12,6 +12,7 @@
     <?php
         $status = 2;
         include_once "koneksi.php";
+        include_once "header.php";
 
         if (isset($_POST["kode"])) {
         $kode = $_POST["kode"];
@@ -117,6 +118,9 @@
             <br>
         </form>
     </div>
+    <?php
+        include_once 'footer.php'
+    ?>
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
