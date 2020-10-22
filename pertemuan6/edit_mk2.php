@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,19 @@
         $status = 2;
         include_once "koneksi.php";
         include_once "header.php";
+        if (isset($_GET["suksesedit"])) {
+            echo "<div id='sukses' class='alert alert-success alert-dismissible fade show'>";
+            echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+            echo "Data berhasil diedit dari database";
+            echo "</div>";
+        }
+
+        elseif (isset($_GET["gagaledit"])) {
+            echo "<div id='gagal' class='alert alert-danger alert-dismissible fade show'>";
+            echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+            echo "Data gagal diedit dari database";
+            echo "</div>";
+        }
 
         if (isset($_GET["kodemk"])) {
             $kodemk = $_GET["kodemk"];
@@ -20,21 +32,11 @@
         $sql = "SELECT * FROM matakuliah WHERE id='".$kodemk."'";
 
         $runSQL = mysqli_query($conn, $sql);
-    }
-    else {
-        header("location: listmatakuliah.php");
-    }
+        }
+        else {
+            header("location: listmatakuliah.php");
+        }
     ?>
-    
-    <div id='sukses' class='alert alert-success alert-dismissible fade show'>
-        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-        Data berhasil diinput kedalam database.
-    </div>
-
-    <div id='gagal' class='alert alert-danger alert-dismissible fade show'>
-        <button type='button' class='close' data-dismiss='alert'>&times;</button>
-        Data gagal diinput kedalam database.
-    </div>
 
     <div class="container">
         <H1>Pendaftaran Mata Kuliah versi 2 (dg Modal)</H1>
@@ -90,9 +92,10 @@
               else {
             while($row = mysqli_fetch_assoc($runSQL)) {
      ?>       
-        <form method="post" id="daftarmatkul">
+        <form method="POST" id="updatematkul">
             <div class="form-group">
                 <label>Kode Mata Kuliah</label><br>
+                <input id="id" class="form-control" type="hidden" name="id" value="<?php echo $row['id'] ?>">
                 <input id="kode" class="form-control" type="text" name="kode" value="<?php echo $row['kode'] ?>"><br>
             </div>
 
@@ -135,14 +138,13 @@
     
     <script>
         $(document).ready(function() {
-            $('#sukses').hide();
-            $('#gagal').hide();
             $('#tombol').click(function(){
                 //ambil data dari form
                 const kode = $('#kode').val();
                 const nama = $('#nama').val();
                 const kategori = $('#kategori').val();
                 const sks = $('#sks').val();
+                const id = $('#id').val();
 
                 $('#kdmk').text(kode);
                 $('#namamk').text(nama);
@@ -153,14 +155,14 @@
             })
 
             $('#simpan').click(function(){
-                var data = $('#daftarmatkul').serialize();
+                var id = $('#id').val();
+                var data = $('#updatematkul').serialize();
                 $.ajax({
                     type: 'POST',
-                    url: "matkulpakhen2.php",
+                    url: "update_mk2.php",
                     data: data,
                     success: function() {
-                        $("#pesan").modal('hide');
-                        document.getElementById("daftarmatkul").reset();
+                        window.location.href = "edit_mk2.php?kodemk="+id+"&suksesedit";
                         $('#sukses').show();
                     }
                 });

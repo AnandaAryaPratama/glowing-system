@@ -12,6 +12,19 @@
     <?php
         include_once "koneksi.php";
         include_once "header.php";
+        if (isset($_GET["sukseshapus"])) {
+            echo "<div id='sukses' class='alert alert-success alert-dismissible fade show'>";
+            echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+            echo "Data berhasil dihapus dari database";
+            echo "</div>";
+        }
+
+        elseif (isset($_GET["gagalhapus"])) {
+            echo "<div id='gagal' class='alert alert-danger alert-dismissible fade show'>";
+            echo "<button type='button' class='close' data-dismiss='alert'>&times;</button>";
+            echo "Data gagal dihapus dari database";
+            echo "</div>";
+        }
     ?>
     <div class="container">
         <div class="row">
@@ -56,7 +69,7 @@
                             <td><?php echo $row["sks"]?></td>
                             <td>
                                 <a href="edit_mk2.php?kodemk=<?php echo $row["id"]?>" class="btn btn-info">Edit</a>
-                                <a href="hapus_mk2.php" class="btn btn-danger">Hapus</a>
+                                <a href="hapus_mk2.php?kodemk=<?php echo $row["id"]?>" class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                     <?php
