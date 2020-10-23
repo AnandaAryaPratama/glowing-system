@@ -7,7 +7,7 @@
         $sks = $_POST["sks"];
         $id = $_POST["id"];
         
-        $sql = "UPDATE matakuliah SET kode='".$kode."' WHERE id='".$id."'";
+        $sql = "UPDATE matakuliah SET kode='".$kode."', nama='".$nama."', kategori='".$kategori."', sks='".$sks."' WHERE id='".$id."'";
 
         $runSQL = mysqli_query($conn, $sql);
         if ($runSQL) {
