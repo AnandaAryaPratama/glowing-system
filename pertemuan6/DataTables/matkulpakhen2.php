@@ -102,7 +102,7 @@
 
             <div class="form-group">
                 <label>Kategori</label><br>
-                <select id="kategori" class="form-control" name="kategori" required>
+                <select id="kategori" class="form-control" name="kategori"> required
                     <option value="default" disabled selected="selected">Pilih Mata Kuliah</option>
                     <option value="MKMA">Mata Kuliah Major</option>
                     <option value="MKMI">Mata Kuliah Minor</option>
