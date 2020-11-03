@@ -2,22 +2,22 @@
     $url = $_SERVER["REQUEST_URI"];
     //echo $url;
 
-    if ($url == "/demoport/admin/kemampuan.php?sukseshapus" OR $url == "/demoport/admin/kemampuan.php?gagal"
-        OR $url == "/demoport/admin/kemampuan.php") {
+    if ($url == "/uts/admin/kemampuan.php?sukseshapus" OR $url == "/uts/admin/kemampuan.php?gagal"
+        OR $url == "/uts/admin/kemampuan.php") {
         $kemampuan = "active";
     }
-    elseif ($url == "/demoport/admin/biodata.php") {
+    elseif ($url == "/uts/admin/biodata.php") {
         $biodata = "active";
     }
-    elseif ($url == "/demoport/admin/pendidikan.php") {
+    elseif ($url == "/uts/admin/pendidikan.php") {
         $pendidikan = "active";
     }
-    elseif ($url == "/demoport/admin/pengalaman.php?sukseshapus" OR $url == "/demoport/admin/pengalaman.php?gagal"
-        OR $url == "/demoport/admin/pengalaman.php") {
+    elseif ($url == "/uts/admin/pengalaman.php?sukseshapus" OR $url == "/uts/admin/pengalaman.php?gagal"
+        OR $url == "/uts/admin/pengalaman.php") {
         $pengalaman = "active";
     }
-    elseif ($url == "/demoport/admin/penelitian.php?sukseshapus" OR $url == "/demoport/admin/penelitian.php?gagal"
-        OR $url == "/demoport/admin/penelitian.php") {
+    elseif ($url == "/uts/admin/penelitian.php?sukseshapus" OR $url == "/uts/admin/penelitian.php?gagal"
+        OR $url == "/uts/admin/penelitian.php") {
         $penelitian = "active";
     }
     else {
