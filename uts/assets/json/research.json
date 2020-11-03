@@ -1,0 +1,40 @@
+{
+    "researchPapers" :
+    [
+        {
+            "title" : "Why India's aspiring engineers are killing themselves?: The town of Kota in northern Rajasthan state is known for its numerous study centres which help students pass India's extremely competitive admission exams for medical and engineering colleges. But high stress levels mean that the town also has an alarming rate of suicide among students",
+            "authors" : "writes the BBC's Shilpa Kannan",
+            "conferences" : "Engineer suicide rate in India, 526-534",
+            "year" : ", 2020",
+            "researchYr" : 2020
+        },
+
+        {
+            "title" : "Why India's aspiring engineers are killing themselves?: The town of Kota in northern Rajasthan state is known for its numerous study centres which help students pass India's extremely competitive admission exams for medical and engineering colleges. But high stress levels mean that the town also has an alarming rate of suicide among students",
+            "authors" : "writes the BBC's Shilpa Kannan",
+            "conferences" : "Engineer suicide rate in India, 526-534",
+            "year" : ", 2020",
+            "researchYr" : 2010
+        },
+
+        {
+            "title" : "Why India's aspiring engineers are killing themselves?: The town of Kota in northern Rajasthan state is known for its numerous study centres which help students pass India's extremely competitive admission exams for medical and engineering colleges. But high stress levels mean that the town also has an alarming rate of suicide among students",
+            "authors" : "writes the BBC's Shilpa Kannan",
+            "conferences" : "Engineer suicide rate in India, 526-534",
+            "year" : ", 2020",
+            "researchYr" : 2009
+        }
+    ],
+
+    "cite" :
+    [
+        {
+            "Canada" : ".\", Cham, 2020.",
+            "Thailand" : " (2020, May). Why India's aspiring engineers are killing themselves?",
+            "chicago" : "Why India's aspiring engineers are killing themselves?. \"Why India's aspiring engineers are killing themselves? 2020.",
+            "Mexico" : "Why India's aspiring engineers are killing themselves?",
+            "South Korea" : "Why India's aspiring engineers are killing themselves?"
+        }
+    ]
+
+}
