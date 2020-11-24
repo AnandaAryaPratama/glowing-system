@@ -29,6 +29,7 @@
                 'email' => $this->request->getVar('email'),
                 'contact_no' => $this->request->getVar('contact_no'),
                 'created_at' => $this->request->getVar('created_at'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             ];
             $save = $model->insert($data);
 
@@ -48,6 +49,7 @@
                 'email' => $this->request->getVar('email'),
                 'contact_no' => $this->request->getVar('contact_no'),
                 'created_at' => $this->request->getVar('created_at'),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             ];
             $save = $model->update($id,$data);
 

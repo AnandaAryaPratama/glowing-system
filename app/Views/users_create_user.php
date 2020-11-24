@@ -69,6 +69,10 @@
                                 <input type="text" name="email" class="form-control" id="email" placeholder="Masukkan Email">
                             </div>
                             <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Nomor Kontak</label>
                                 <input type="text" name="contact_no" class="form-control" id="contact_no" placeholder="Masukkan Nomor Kontak">
                             </div>

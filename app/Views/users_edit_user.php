@@ -70,6 +70,10 @@
                                 <input type="text" name="email" class="form-control" id="email" placeholder="Masukkan Email" value="<?= $user['email']; ?>">
                             </div>
                             <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="Masukkan Password" value="<?= $user['password']; ?>">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Nomor Kontak</label>
                                 <input type="text" name="contact_no" class="form-control" id="contact_no" value="<?= $user['contact_no']; ?>">
                             </div>
