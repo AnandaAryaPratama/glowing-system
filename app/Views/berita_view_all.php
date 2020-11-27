@@ -33,31 +33,35 @@
                 </button>
             </nav>          
             <div class="container mt-5">
-                <a href="<?= base_url('admin/users/create')?>" class="btn btn-success mb-2">Create</a>
-                <h2> List Users </h2>
+                <a href="<?= base_url('admin/berita/create')?>" class="btn btn-success mb-2">Create</a>
+                <h2> List Berita </h2>
                 <div class="row mt-3">
                     <div class="col-sm-12">
-                        <table class="table table-striped" id="tableUser">
+                        <table class="table table-striped" id="tableBerita">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
-                                    <th>Nomor Kontak</th>
+                                    <th>Judul Berita</th>
+                                    <th>Author</th>
+                                    <th>Tanggal Posting</th>
+                                    <th>Foto</th>
+                                    <th>Isi Berita</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if($users): ?>
-                                <?php foreach ($users as $pengguna): ?>
+                                <?php if($berita): ?>
+                                <?php foreach ($berita as $bacaan): ?>
                                 <tr>
-                                    <td><?= $pengguna['id']; ?></td>
-                                    <td><?= $pengguna['name']; ?></td>
-                                    <td><?= $pengguna['email']; ?></td>
-                                    <td><?= $pengguna['contact_no']; ?></td>
+                                    <td><?= $bacaan['id']; ?></td>
+                                    <td><?= $bacaan['judulberita']; ?></td>
+                                    <td><?= $bacaan['author']; ?></td>
+                                    <td><?= $bacaan['tglposting']; ?></td>
+                                    <td><img src="<?= base_url('images/'.$bacaan['foto']); ?>" class="img-thumbnail"></td>
+                                    <td><?= substr($bacaan['isiberita'], 0, 50)."..."; ?></td>
                                     <td>
-                                        <a href="<?= base_url('admin/users/edit/'.$pengguna['id']); ?>" class="btn btn-success">Edit</a>
-                                        <a href="<?= base_url('admin/users/delete/'.$pengguna['id']); ?>" class="btn btn-danger">Delete</a>
+                                        <a href="<?= base_url('admin/berita/edit/'.$bacaan['id']); ?>" class="btn btn-success">Edit</a>
+                                        <a href="<?= base_url('admin/berita/delete/'.$bacaan['id']); ?>" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -90,6 +94,6 @@ $(document).ready( function () {
             $('#sidebar').toggleClass('active');
             $(this).toggleClass('active');
         });
-    $('#tableUser').DataTable();
+    $('#tableBerita').DataTable();
     });
 </script>
