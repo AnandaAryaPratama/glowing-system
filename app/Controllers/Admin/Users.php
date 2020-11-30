@@ -4,9 +4,6 @@
     use App\Models\UsersModel;
 
     class Users extends BaseController {
-        public function sidebar() {
-            $this->load->view('side_navbar');
-        }
         public function index() {
             //echo "Ini hamanan index pada controller users";
             

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>Halaman Webku</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/bff43c19a2.js" crossorigin="anonymous"></script>
   <style>
   .fakeimg {
     height: 200px;
@@ -23,21 +24,18 @@
   </div>
 
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="<?= base_url()?>">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="<?= base_url('home/bacaberita')?>">Berita</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="<?= base_url('home/bacahalaman')?>">Halaman</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>    
       </ul>
     </div>  
   </nav>
@@ -47,22 +45,16 @@
       <div class="col-sm-4">
         <h2>About Me</h2>
         <h5>Photo of me:</h5>
-        <div class="fakeimg">Fake Image</div>
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-        <h3>Some Links</h3>
-        <p>Lorem ipsum dolor sit ame.</p>
+        <div><img src="<?= base_url('images/about.jpeg')?>" class="rounded" style="height: 315; width: 200px;"> </div>
+        <p><?php //$dataabout['deskripsi_singkat']; ?></p>
+        <h3>Sosial Media</h3>
+        <p>Kalian bisa mencari lebih tau mengenai saya di:</p>
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link" href="https://www.instagram.com/annda_arya/"><i class="fab fa-instagram"> Instagram</i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="mailto:ananda.aryapratama@student.upj.ac.id"><i class="fas fa-envelope"> Email</i></a>
           </li>
         </ul>
         <hr class="d-sm-none">
@@ -70,11 +62,16 @@
       <div class="col-sm-8">
         <?php if($berita): ?>
         <?php foreach ($berita as $bacaan): ?>
-          <h2><?= $bacaan['judulberita']; ?></h2>
+          <h2><a href="<?= base_url('home/berita/'.$bacaan['id']); ?>" style="text-decoration: none; color: black;" 
+          onMouseOver="this.style.color='#00F'" onMouseOut="this.style.color='#000000'">
+              <?= $bacaan['judulberita']; ?></a>
+          </h2>
           <h5><?= $bacaan['author']; ?>, <?= $bacaan['tglposting']; ?></h5>
           <img src="<?= base_url('images/'.$bacaan['foto'])?>" class="rounded"> 
           <p>Some text..</p>
-          <p><?= $bacaan['isiberita']; ?></p>
+          <p> <?= substr($bacaan['isiberita'], 0, 500)."......."; ?><a href="
+              <?= base_url('home/berita/'.$bacaan['id']); ?>" style="text-decoration: none;">Baca Selengkapnya</a>
+          </p>
           <br>
         <?php endforeach; ?>
         <?php endif; ?>

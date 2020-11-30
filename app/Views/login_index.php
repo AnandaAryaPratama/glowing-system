@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -12,7 +12,7 @@
         <div class="col-12">
             <h2>Sign In</h2>
             <?php if(session()->getFlashdata('msg')): ?>
-            <div class="alert alert-danger"><?= base_url('admin/login/auth'); endif?></div>
+            <div class="alert alert-danger"><?= session()->getFlashdata('msg'); endif?></div>
             <form action="<?= base_url('admin/login/auth'); ?>" method="POST">
                 <div class="form-group">
                     <label for="email">Email address:</label>

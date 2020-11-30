@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Tambah Users</title>
+    <title>Tambah Berita</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url('css/style5.css'); ?>">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="<?php echo base_url('summernote/summernote-bs4.css'); ?>" rel="stylesheet">
+    <script src="<?php echo base_url('summernote/summernote-bs4.js'); ?>"></script>
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -21,16 +22,7 @@
         <div class="sidebar"></div>
         <!-- Page Content Holder -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-            </nav>
+            <div class="topbar"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-9">
@@ -65,8 +57,11 @@
         </div>
     </div>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
@@ -82,10 +77,4 @@
             $(this).toggleClass('active');
         });
     });
-</script>
-
-<script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
 </script>

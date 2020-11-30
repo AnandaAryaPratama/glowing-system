@@ -1,7 +1,3 @@
-<?php
-    $session = session();
-    $namasession = $session->get('user_name');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>List Users</title>
+    <title>List Halaman</title>
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -26,16 +22,7 @@
         <div class="sidebar"></div>
         <!-- Page Content Holder -->
         <div id="content">  
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-            </nav>          
+            <div class="topbar"></div>
             <div class="container mt-5">
                 <a href="<?= base_url('admin/halaman/create')?>" class="btn btn-success mb-2">Create</a>
                 <h2> List Halaman </h2>
@@ -60,7 +47,7 @@
                                     <td><?= $artikel['judulhalaman']; ?></td>
                                     <td><?= $artikel['author']; ?></td>
                                     <td><?= $artikel['tglposting']; ?></td>
-                                    <td><?= $artikel['isihalaman']; ?></td>
+                                    <td><?= substr($artikel['isihalaman'], 0, 400)."..."; ?></td>
                                     <td>
                                         <a href="<?= base_url('admin/halaman/edit/'.$artikel['id']); ?>" class="btn btn-success">Edit</a>
                                         <a href="<?= base_url('admin/halaman/delete/'.$artikel['id']); ?>" class="btn btn-danger">Delete</a>
@@ -85,10 +72,6 @@
     <script src="<?= base_url('js/main.js'); ?>"></script>
 </body>
 </html>
-<script>
-$(document).ready( function () {
-} );
-</script>
 
 <script>
     $(document).ready(function () {

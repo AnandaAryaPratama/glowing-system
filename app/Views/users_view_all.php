@@ -22,16 +22,7 @@
         <div class="sidebar"></div>
         <!-- Page Content Holder -->
         <div id="content">  
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-            </nav>          
+            <div class="topbar"></div>      
             <div class="container mt-5">
                 <a href="<?= base_url('admin/users/create')?>" class="btn btn-success mb-2">Create</a>
                 <h2> List Users </h2>

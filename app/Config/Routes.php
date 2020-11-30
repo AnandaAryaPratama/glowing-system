@@ -35,6 +35,7 @@ $routes->get('/admin/dashboard', 'Admin\Dashboard::index', ['filter' => 'auth'])
 $routes->get('/admin/users', 'Admin\Users::index', ['filter' => 'auth']);
 $routes->get('/admin/berita', 'Admin\Berita::index', ['filter' => 'auth']);
 $routes->get('/admin/dashboard', 'Admin\Dashboard::index', ['filter' => 'auth']);
+$routes->get('/admin', 'Admin\Dashboard::index', ['filter' => 'auth']);
 
 /**
  * --------------------------------------------------------------------

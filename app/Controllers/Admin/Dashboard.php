@@ -5,6 +5,7 @@
     class Dashboard extends BaseController {
         public function index() {
             $session = session();
+            $namasession = $session->get('user_name');
         }
     }
 ?>
@@ -36,67 +37,34 @@
                 <h3>Selamat Datang</h3>
             </div>
             <ul class="list-unstyled components">
-                <p><?php $session = session(); $namasession = $session->get('user_name'); echo $namasession; ?></p>
-                <li class="active">
-                    <a href="<?php echo base_url(); ?>">Home</a>
+                <p><?php 
+                        $session = session();
+                        $namasession = $session->get('user_name');
+                        echo $namasession;
+                    ?>
+                </p>
+                <li>
+                    <a href="http://belajar-ci.test/admin/dashboard">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Master Data</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="<?php echo base_url('admin/users'); ?>">Users</a>
+                            <a href="http://belajar-ci.test/admin/users">Users</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/berita'); ?>">Berita</a>
+                            <a href="http://belajar-ci.test/admin/berita">Berita</a>
+                        </li>
+                        <li>
+                            <a href="http://belajar-ci.test/admin/halaman">Halaman</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
             </ul>
         </nav>
-
         <!-- Page Content Holder -->
         <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="<?php echo base_url('admin/users'); ?>">Master Users</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('admin/berita'); ?>">Master Berita</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('admin/halaman'); ?>">Master Halaman</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('admin/about'); ?>">Master About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('admin/login/logout'); ?>">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div class="topbar"></div>
             
             <h2>Selamat Datang Admin</h2>
             <p>Halaman ini digunakan oleh Admin untuk mengatur data - data yang ada.</p>
@@ -114,6 +82,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="<?= base_url('js/main.js'); ?>"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
